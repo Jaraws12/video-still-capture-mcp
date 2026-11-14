@@ -1,0 +1,28 @@
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-still-capture-mcp"
+version = "1.0.0"
+description = "An MCP server for webcam access and image processing using OpenCV"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "mcp[cli]>=1.28,<2",
+    "opencv-python",
+    "numpy"
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+py-modules = ["camera_manager", "videocapture_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
